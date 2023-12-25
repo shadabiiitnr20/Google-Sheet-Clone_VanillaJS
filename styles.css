@@ -1,0 +1,208 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* This section is for styling - file bar section */
+
+.file-bar {
+  height: 3rem;
+  background-color: #218c74;
+  display: flex;
+  align-items: center;
+  padding-left: 0.5rem;
+}
+
+.file-action-types {
+  margin: 0.5rem;
+  color: #f1f2f6;
+}
+
+.file-action-types:hover {
+  cursor: pointer;
+}
+
+/* This section is for styling - styling bar section */
+
+.styling-bar {
+  height: 3rem;
+  background-color: #ecf0f1;
+  display: flex;
+  align-items: center;
+  padding-left: 0.5rem;
+}
+
+.styling-bar > * {
+  margin: 0.5rem;
+}
+
+.styling-bar > span:hover {
+  cursor: pointer;
+}
+
+.styling-bar > select {
+  padding: 0.2rem;
+  border: none;
+  border-radius: 2px;
+  outline: none;
+}
+
+.color-fill-style {
+  position: relative;
+}
+
+.color-fill-style > input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.color-fill-style > input:hover {
+  cursor: pointer;
+}
+
+/* This section is for styling - formula bar section */
+
+.formula-bar {
+  height: 2rem;
+  background-color: #ecf0f1;
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.address-bar {
+  width: 5rem;
+  margin-right: 0.5rem;
+  text-align: center;
+}
+
+.formula-bar > span {
+  cursor: default;
+}
+
+.function-bar {
+  width: calc(100vw - 5rem);
+  margin-left: 0.5rem;
+  margin-right: 1rem;
+}
+
+.formula-bar > input {
+  border: none;
+  outline: none;
+  padding: 0.2rem;
+  height: 70%;
+}
+
+/* This section is for styling - Grid Area */
+
+.grid-area {
+  height: calc(100vh - 3rem - 3rem - 2rem - 2rem);
+  position: relative;
+  overflow: scroll;
+}
+
+.grid-dummy-box {
+  height: 2rem;
+  width: 2rem;
+  background-color: #747d8c;
+  position: fixed;
+  z-index: 1;
+}
+
+.address-col {
+  /* This is for styling the whole adress col */
+  width: 2rem;
+  top: 2rem;
+  left: 0;
+  position: sticky;
+}
+
+.address-col-cells {
+  /* This is for styling each adress col cell from 1-100 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6.34px;
+  border: 1px solid #dfe4ea;
+  background-color: rgb(228, 234, 234);
+}
+
+.address-row {
+  /* This is for styling the whole row address col */
+  display: flex;
+  position: sticky;
+  top: 0;
+  left: 2rem;
+}
+
+.address-row-cells {
+  /* This is for styling each adress row cell from A-Z */
+  height: 2rem;
+  width: 5rem;
+  border: 1px solid #dfe4ea;
+  background-color: rgb(228, 234, 234);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-container {
+  position: absolute;
+  top: 0;
+  left: 2rem;
+}
+
+.grid-cell-row {
+  display: flex;
+}
+
+.grid-cell-col {
+  height: 2rem;
+  width: 5rem;
+  border: 1px solid #dfe4ea;
+  outline: none;
+  font-size: 14px;
+  font-family: monospace;
+  text-align: left;
+}
+
+/* This section is for styling- sheet bar section */
+
+.sheet-bar {
+  height: 2rem;
+  background-color: #ecf0f1;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.sheet-bar > * {
+  display: inline-block;
+}
+
+.sheet-add-icon {
+  width: 2vw;
+}
+
+.sheet-bar-container {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+  height: 80%;
+  width: calc(100vw - 2vw);
+}
+
+.sheet-file {
+  text-decoration: underline;
+  font-weight: bold;
+  text-decoration-thickness: 2px;
+}

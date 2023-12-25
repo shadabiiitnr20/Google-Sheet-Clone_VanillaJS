@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Sheet Clone</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="file-bar">
+      <!-- This section is for the top file bar -->
+      <div class="file-action-types">Home</div>
+      <div class="file-action-types">Edit</div>
+      <div class="file-action-types">Layout</div>
+      <div class="file-action-types">Insert</div>
+      <div class="file-action-types">Help</div>
+    </div>
+    <div class="styling-bar">
+      <!-- This section is for the styling-bar containing styling icons -->
+      <span class="material-icons"> content_copy </span>
+      <span class="material-icons"> content_cut </span>
+      <span class="material-icons"> content_paste </span>
+      <!-- Added 2 select tags for font family and font-size drop downs -->
+      <select class="font-family">
+        <option value="monospace">monospace</option>
+        <option value="cursive">cursive</option>
+        <option value="fantasy">fantasy</option>
+        <option value="sans-serif">sans-serif</option>
+      </select>
+      <select class="font-size">
+        <option value="14">14</option>
+        <option value="16">16</option>
+        <option value="20">20</option>
+        <option value="22">22</option>
+      </select>
+      <span class="material-icons bold"> format_bold </span>
+      <span class="material-icons italic"> format_italic </span>
+      <span class="material-icons underline"> format_underlined </span>
+      <span class="left material-icons alignment"> format_align_left </span>
+      <span class="center material-icons alignment"> format_align_center </span>
+      <span class="right material-icons alignment"> format_align_right </span>
+      <div class="color-fill-style">
+        <span class="material-icons"> format_color_text </span>
+        <input type="color" class="color-input-font" />
+      </div>
+      <div class="color-fill-style">
+        <span class="material-icons"> format_color_fill </span>
+        <input type="color" class="color-input-bg" />
+      </div>
+    </div>
+    <div class="formula-bar">
+      <!-- This section is for formula bar. There are 3 sections - 1 Cell Address Bar, 1 Functions Icon and 1 Functions Bar -->
+      <input type="text" readonly class="address-bar" />
+      <span class="material-icons"> functions </span>
+      <input type="text" class="function-bar" />
+    </div>
+    <div class="grid-area">
+      <!-- This section is for the main Grid area and is divided into 4 parts -->
+      <!-- 1. Grid Dummy Box, 2. Main Address Column, 3. Main Address Row and 4. Main Grid Cells Area  -->
+      <div class="grid-dummy-box"></div>
+      <div class="address-col"></div>
+      <div class="grid-container">
+        <!-- The Main Adress Row is placed inside the Grid Cells Area -->
+        <div class="address-row"></div>
+      </div>
+    </div>
+    <div class="sheet-bar">
+      <!-- This section is for the sheet bar. It has 2 parts - 1.Add Sheet Icon and 2.Sheet Container  -->
+      <div class="sheet-add-icon">
+        <span class="material-icons"> post_add </span>
+      </div>
+      <div class="sheet-bar-container">
+        <div class="sheet-file">Sheet1</div>
+      </div>
+    </div>
+  </body>
+  <script src="./grid.js"></script>
+  <script src="./cell-properties.js"></script>
+</html>
