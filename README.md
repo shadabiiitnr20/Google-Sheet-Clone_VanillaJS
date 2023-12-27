@@ -7,3 +7,6 @@
   - Storage through Matrix for accessing each cell in the grid
   - Object for string the styling properties
 - Create speacial IDs for indentification of specific cells
+- Add the styling properties and functionality
+- Make the formula bar functionality, using Blur and Focus event listeners
+- Data Update In Between Recursively

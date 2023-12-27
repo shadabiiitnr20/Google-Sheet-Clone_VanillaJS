@@ -13,6 +13,9 @@ for (let i = 0; i < rows; i++) {
       fontSize: "12",
       fontColor: "#000000",
       BGColor: "#000000",
+      value: "",
+      formula: "",
+      children: [],
     };
     sheetRow.push(cellStyleProps);
   }
@@ -36,12 +39,13 @@ let leftAlign = alignment[0];
 let centerAlign = alignment[1];
 let rightAlign = alignment[2];
 
+
 //Attach Listeners
 //Application of 2 way binding
 //Bold Styling
 bold.addEventListener("click", () => {
   let address = addressBar.value; //By using the address bar selector
-  let [cell, cellProp] = getActiveCell(address);
+  let [cell, cellProp] = getActiveCellAndCellProp(address);
 
   //Modification of Properties
   cellProp.bold = !cellProp.bold;
@@ -56,7 +60,7 @@ bold.addEventListener("click", () => {
 //Italic Styling
 italic.addEventListener("click", () => {
   let address = addressBar.value; //By using the address bar selector
-  let [cell, cellProp] = getActiveCell(address);
+  let [cell, cellProp] = getActiveCellAndCellProp(address);
 
   //Modification of Properties
   cellProp.italic = !cellProp.italic;
@@ -71,7 +75,7 @@ italic.addEventListener("click", () => {
 //Underline Styling
 underline.addEventListener("click", () => {
   let address = addressBar.value; //By using the address bar selector
-  let [cell, cellProp] = getActiveCell(address);
+  let [cell, cellProp] = getActiveCellAndCellProp(address);
 
   //Modification of Properties
   cellProp.underline = !cellProp.underline;
@@ -87,7 +91,7 @@ underline.addEventListener("click", () => {
 
 fontSize.addEventListener("change", (e) => {
   let address = addressBar.value; //By using the address bar selector
-  let [cell, cellProp] = getActiveCell(address);
+  let [cell, cellProp] = getActiveCellAndCellProp(address);
 
   //Modification of Properties
   cellProp.fontSize = fontSize.value;
@@ -101,7 +105,7 @@ fontSize.addEventListener("change", (e) => {
 
 fontFamily.addEventListener("change", (e) => {
   let address = addressBar.value; //By using the address bar selector
-  let [cell, cellProp] = getActiveCell(address);
+  let [cell, cellProp] = getActiveCellAndCellProp(address);
 
   //Modification of Properties
   cellProp.fontFamily = fontFamily.value;
@@ -115,7 +119,7 @@ fontFamily.addEventListener("change", (e) => {
 
 fontColor.addEventListener("change", (e) => {
   let address = addressBar.value; //By using the address bar selector
-  let [cell, cellProp] = getActiveCell(address);
+  let [cell, cellProp] = getActiveCellAndCellProp(address);
 
   //Modification of Properties
   cellProp.fontColor = fontColor.value;
@@ -129,7 +133,7 @@ fontColor.addEventListener("change", (e) => {
 
 BGColor.addEventListener("change", (e) => {
   let address = addressBar.value; //By using the address bar selector
-  let [cell, cellProp] = getActiveCell(address);
+  let [cell, cellProp] = getActiveCellAndCellProp(address);
 
   //Modification of Properties
   cellProp.BGColor = BGColor.value;
@@ -144,7 +148,7 @@ BGColor.addEventListener("change", (e) => {
 alignment.forEach((ele) => {
   ele.addEventListener("click", (e) => {
     let address = addressBar.value; //By using the address bar selector
-    let [cell, cellProp] = getActiveCell(address);
+    let [cell, cellProp] = getActiveCellAndCellProp(address);
 
     let alignValue = e.target.classList[0];
     cellProp.alignment = alignValue; //DB Change
@@ -176,6 +180,7 @@ for (let i = 0; i < allCells.length; i++) {
 }
 
 function addListenerToAttachCellProperties(cell) {
+  //click listener on all cells
   cell.addEventListener("click", (e) => {
     let { rid: row_ID, cid: col_ID } = e.target.dataset;
     let cellProp = sheetDB[row_ID][col_ID];
@@ -223,10 +228,14 @@ function addListenerToAttachCellProperties(cell) {
         rightAlign.style.backgroundColor = activeColorProp;
         break;
     }
+
+    
+    functionBar.value = cellProp.formula;
+    cell.value = cellProp.value;
   });
 }
 
-function getActiveCell(address) {
+function getActiveCellAndCellProp(address) {
   let [row_ID, col_ID] = decode_rowID_colID_from_address(address);
   //Access Cell and Storage Object
   let cell = document.querySelector(
